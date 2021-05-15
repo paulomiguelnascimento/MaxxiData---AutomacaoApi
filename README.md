@@ -1,7 +1,7 @@
 # MaxxiData-AutomacaoApi
 
 - Para a Execução desse projeto foi executado a tecnologia "RestAssured" do java utilizar a configuração abaixo:
-- Java JDK 7 ou Superir
+- Java JDK 7 ou Superior
 - IDE Eclipse
 - Criar Projeto Maven e efetuar o próximo passo
 - Para a execução se faz necessário importar o arquivo presente na pasta "src/test/java/maxiData";
