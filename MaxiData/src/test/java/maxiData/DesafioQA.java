@@ -32,7 +32,7 @@ public class DesafioQA {
     
 		response.then()
 	.statusCode(200)
-	.body(equalTo("[{\"1\":{\"Pagina\":\"0\"}},{\"2\":{\"tamanho\":\"2\"}},{\"3\":{\"numeroRegistros\":\"3\"}},{\"4\":{\"id\":\"1\",\"nome\":\"João da Silva\",\"dataNascimento\":\"2000-01-01\",\"cpf\":\"123.456.789/00\",\"ativo\":\"true\",\"meta\":\"1000\"}},{\"5\":{\"id\":\"2\",\"nome\":\"Maria da Silva\",\"dataNascimento\":\"1998-01-01\",\"cpf\":\"987.654.321/00\",\"ativo\":\"true\",\"meta\":\"1000\"}},{\"6\":{\"id\":\"3\",\"nome\":\"José da Silva\",\"dataNascimento\":\"2010-09-27\",\"cpf\":\"null\",\"ativo\":\"false\",\"meta\":\"0.5\"}}]"))
+	.body(equalTo("[{\"1\":{\"Pagina\":\"0\"}},{\"2\":{\"tamanho\":\"2\"}},{\"3\":{\"numeroRegistros\":\"3\"}},{\"4\":{\"id\":\"1\",\"nome\":\"JoÃ£o da Silva\",\"dataNascimento\":\"2000-01-01\",\"cpf\":\"123.456.789/00\",\"ativo\":\"true\",\"meta\":\"1000\"}},{\"5\":{\"id\":\"2\",\"nome\":\"Maria da Silva\",\"dataNascimento\":\"1998-01-01\",\"cpf\":\"987.654.321/00\",\"ativo\":\"true\",\"meta\":\"1000\"}},{\"6\":{\"id\":\"3\",\"nome\":\"JosÃ© da Silva\",\"dataNascimento\":\"2010-09-27\",\"cpf\":\"null\",\"ativo\":\"false\",\"meta\":\"0.5\"}}]"))
 	.log().all();
 		System.out.println("RETORNO =>" + response.body().asString());
 }
@@ -51,7 +51,7 @@ public class DesafioQA {
 	
 				response.then()
 				.statusCode(200)
-				.body(equalTo("[{\"\":{\"id\":\"1\",\"nome\":\"João da Silva\",\"dataNascimento\":\"2000-01-01\",\"cpf\":\"123.456.789/00\",\"ativo\":\"true\",\"meta\":\"1000\"}}]") )
+				.body(equalTo("[{\"\":{\"id\":\"1\",\"nome\":\"JoÃ£o da Silva\",\"dataNascimento\":\"2000-01-01\",\"cpf\":\"123.456.789/00\",\"ativo\":\"true\",\"meta\":\"1000\"}}]") )
 				.log().all();
 
 				System.out.println("RETORNO =>" + response.body().asString());
@@ -72,7 +72,7 @@ public class DesafioQA {
 
 						response.then()
 						.statusCode(404)
-						.body(equalTo("{\"codigoErro\":1,\"mensagemErro\":\"O registro 27 não foi encontrado\"}") )
+						.body(equalTo("{\"codigoErro\":1,\"mensagemErro\":\"O registro 27 nÃ£o foi encontrado\"}") )
 						.log().all();
 
 						System.out.println("RETORNO =>" + response.body().asString());
@@ -87,7 +87,7 @@ public class DesafioQA {
 		
 		Response response = 
 		given().contentType("application/json")
-		.body("{\"id\": \"1\",\"nome\":\"João da Silva\",\"dataNascimento\":\"2000-01-01\"cpf\":\"464.589.520-66\"ativo\":\"true\"\"meta\":\"1000\"}").
+		.body("{\"id\": \"1\",\"nome\":\"JoÃ£o da Silva\",\"dataNascimento\":\"2000-01-01\"cpf\":\"464.589.520-66\"ativo\":\"true\"\"meta\":\"1000\"}").
 		when().post(url);
 		response.then().body("message",containsString ("Sucesso")).statusCode(201);
 		
@@ -103,9 +103,9 @@ public class DesafioQA {
 		
 		Response response = 
 		given().contentType("application/json")
-		.body("{\"id\": \"1\",\"nome\":\"João da Silva Santos\",\"dataNascimento\":\"2000-01-01\"cpf\":\"123.456.789/00\"ativo\":\"true\"\"meta\":\"1000.00\"}").
+		.body("{\"id\": \"1\",\"nome\":\"JoÃ£o da Silva Santos\",\"dataNascimento\":\"2000-01-01\"cpf\":\"123.456.789/00\"ativo\":\"true\"\"meta\":\"1000.00\"}").
 		when().post(url);
-		response.then().body("message",containsString ("O cpf informado não é valido")).statusCode(400);
+		response.then().body("message",containsString ("O cpf informado nÃ£o Ã© valido")).statusCode(400);
 		
 		System.out.println("RETORNO =>" + response.body().asString());
 		
@@ -119,7 +119,7 @@ public class DesafioQA {
 		
 		Response response = 
 		given().contentType("application/json")
-		.body("{\"id\": \"1\",\"nome\":\"João da Silva Santos\",\"dataNascimento\":\"2000-01-01\"cpf\":\"789.123.999/00\"ativo\":\"false\"\"meta\":\"0\"}").
+		.body("{\"id\": \"1\",\"nome\":\"JoÃ£o da Silva Santos\",\"dataNascimento\":\"2000-01-01\"cpf\":\"789.123.999/00\"ativo\":\"false\"\"meta\":\"0\"}").
 		when().put(url);
 		response.then().body("message",containsString ("Sucesso")).statusCode(200);
 		
@@ -176,7 +176,7 @@ public class DesafioQA {
 		.get("http://localhost:8080/ListaReceita/25");
 			response.then()
 	.statusCode(400)
-	.body(equalTo("{\"codigoErro\":1,\"mensagemErro\":\"O registro 25 não foi encontrado\"}") )
+	.body(equalTo("{\"codigoErro\":1,\"mensagemErro\":\"O registro 25 nÃ£o foi encontrado\"}") )
 	.log().all();
 		System.out.println("RETORNO =>" + response.body().asString());
 }
@@ -207,7 +207,7 @@ public class DesafioQA {
 		given().contentType("application/json")
 		.body("{\"pessoaId\":\"1\",\"data\":\"2021-02-15\",\"valor\":\"-270.00\"}").
 		when().post(url);
-		response.then().body("message",containsString ("O campo valor não pode ser negativo")).statusCode(400);
+		response.then().body("message",containsString ("O campo valor nÃ£o pode ser negativo")).statusCode(400);
 		
 		System.out.println("RETORNO =>" + response.body().asString());
 		
@@ -238,7 +238,7 @@ public class DesafioQA {
 		given().contentType("application/json")
 		.body("{\"pessoaId\": \"1\",\"data\":\"2021-02-15\",\"valor\":\"2500.50\"}").
 		when().put(url);
-		response.then().body("message",containsString ("O registro 15 não foi encontrado")).statusCode(404);
+		response.then().body("message",containsString ("O registro 15 nÃ£o foi encontrado")).statusCode(404);
 		
 		System.out.println("RETORNO =>" + response.body().asString());
 		
@@ -271,9 +271,9 @@ public class DesafioQA {
 	    .contentType("application/json")
 	
 		.when()
-		.delete("http://localhost:8080/api/receitas/15");
+		.delete("http://localhost:8080/receitas/15");
 		
-		response.then().body("message",containsString ("O registro 15 não foi encontrado")).statusCode(404);
+		response.then().body("message",containsString ("O registro 15 nÃ£o foi encontrado")).statusCode(404);
 		
 		System.out.println("RETORNO =>" + response.body().asString());
 		
