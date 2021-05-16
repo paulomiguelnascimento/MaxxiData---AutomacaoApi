@@ -47,6 +47,9 @@ public class DesafioQA {
 			
 				given()
 				.contentType("application/json")
+				.param("pagina", "0")
+				.param("tamanho", "10")
+	
 	
 				.when()
 				.get("http://localhost:8080/ListaPessoaEspecifica/1");
