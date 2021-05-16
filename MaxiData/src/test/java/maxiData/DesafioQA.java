@@ -26,7 +26,7 @@ public class DesafioQA {
 	given()
 		.contentType("application/json")
 		.param("pagina", "0")
-		.param("tamanho", "1")
+		.param("tamanho", "10")
 	
     .when()
     
